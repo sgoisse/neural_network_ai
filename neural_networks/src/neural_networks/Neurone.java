@@ -15,6 +15,10 @@ public class Neurone {
     private int MIN = 1;
     private int MAX = 40;
     private ArrayList connection_weight = new ArrayList();
+    private ArrayList outputs = new ArrayList();
+    private ArrayList inputs = new ArrayList();
+    
+    
     private int layer_number;
     private int number_per_layer;
     
@@ -32,6 +36,24 @@ public class Neurone {
         
 
 }
+    
+    public void compute_total_input(){
+        
+    }
+    
+    public double get_output(int number_neuron_in_layer){
+        return(outputs.get(number_neuron_in_layer));
+        
+    }
+    
+    public void compute_output(){
+        double temp;
+        for(int i = 0 ; i< inputs.size();++i){
+            
+            
+        }
+        
+    }
     public double get_output(){
        double output = 0.0;
        return output;
