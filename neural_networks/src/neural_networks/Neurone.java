@@ -38,19 +38,20 @@ public class Neurone {
 }
     
     public void compute_total_input(){
-        
+        double total_input= 0;
+        for(int i =0; i<inputs.size();++i){
+            total_input += (double)inputs.get(i);
+        }
     }
     
     public double get_output(int number_neuron_in_layer){
-        return(outputs.get(number_neuron_in_layer));
+        return((double)outputs.get(number_neuron_in_layer));
         
     }
     
-    public void compute_output(){
-        double temp;
-        for(int i = 0 ; i< inputs.size();++i){
-            
-            
+    public void compute_output(int number_neuron_per_layer, double total_input){
+        for(int i = 0 ; i< number_neuron_per_layer;++i){
+            outputs.add((double)connection_weight.get(i)* total_input);
         }
         
     }
