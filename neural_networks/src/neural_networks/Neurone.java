@@ -16,6 +16,7 @@ public class Neurone {
     private int MAX = 40;
     private ArrayList connection_weight = new ArrayList();
     private int layer_number;
+    private int number_per_layer;
     
     public Neurone(){
         
@@ -28,9 +29,13 @@ public class Neurone {
             
             connection_weight.add((int)( Math.random()*( MAX - MIN ) ) + MIN );
         }
+        
+
 }
-    
-    
+    public double get_output(){
+       double output = 0.0;
+       return output;
+    }
 }
 
 
