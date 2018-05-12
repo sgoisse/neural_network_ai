@@ -6,6 +6,7 @@
 package neural_networks;
 
 import java.util.ArrayList;
+import static neural_networks.Network.get_inputs_size;
 
 /**
  *
@@ -20,10 +21,11 @@ public class Neurone {
     
     
     private int layer_number;
-    private int number_per_layer;
+    private int number_in_layer;
     
-    public Neurone(){
-        
+    public Neurone(int layer_number_c, int number_in_layer_c){
+        layer_number = layer_number_c;
+        number_in_layer = number_in_layer_c;
     }
     
     
@@ -39,6 +41,7 @@ public class Neurone {
     
     public void compute_total_input(){
         double total_input= 0;
+        int number_inputs = get_inputs_size(layer_number);
         for(int i =0; i<inputs.size();++i){
             total_input += (double)inputs.get(i);
         }
