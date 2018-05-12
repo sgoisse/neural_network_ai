@@ -8,6 +8,7 @@ package neural_networks;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import neural_networks.Neurone;
 
 /**
  *
@@ -34,15 +35,34 @@ public class Network {
         
     }
     
+    static int get_inputs_size(int i){
+        return layer.get(i-1).size();
+    }
+    
+    static ArrayList<Neurone> getNeuronsBefore(int layer_number){
+        return layer.get(layer_number-1);
+    }
+    
     static void put_neurons_in_array(){
-        for(int i = 0 ; i< number_layer ;++i){
+        ArrayList neuron_entry_list = new ArrayList();
+        layer.add(neuron_entry_list);
+        Entry_neurone entry_neurone = new Entry_neurone(0,0);
+        neuron_entry_list.add(entry_neurone);
+        
+        for(int i = 1 ; i< number_layer+1 ;++i){
             ArrayList neuron_in_layer = new ArrayList();
             layer.add(neuron_in_layer);
             for(int j = 0 ; j < number_neurons_per_layer ;++j){
-                layer.get(i).add(Neurone neurone = new Neurone());
+                Neurone neurone = new Neurone(i,j);
+                neuron_in_layer.add(neurone);
                 
             }
         }
+        
+        ArrayList neuron_output_list = new ArrayList();
+        layer.add(neuron_output_list);
+        OutputNeurone output_neurone = new OutputNeurone(number_layer+1,0);
+        neuron_entry_list.add(entry_neurone);    
     }
     
 }
